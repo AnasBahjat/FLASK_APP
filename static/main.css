@@ -1,0 +1,24 @@
+body,html {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(152, 139, 139);
+}
+
+.welcom-div{
+    border: 2px solid black;
+    border-radius: 8px;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    background-color: white;
+}
+.welcom-div:hover{
+    cursor: pointer;
+    background-color: lightblue;
+}

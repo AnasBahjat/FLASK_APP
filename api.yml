@@ -1,0 +1,62 @@
+#api.yml
+
+openapi: 3.0.0
+info:
+  title: "RP Flask REST API"
+  description: "An API about people and notes"
+  version: "1.0.0"
+
+servers:
+  - url: "/main"
+
+components:
+  schemas:
+    User:
+      type: "object"
+      required:
+        - uid
+      properties:
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
+        email:
+          type: "string"
+        uid:
+          type: "integer"
+        age:
+          type: "number"
+          format: "float"
+  parameters:
+    uid:
+      name: "uid"
+      description: "User ID that is unique for each user .."
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+  
+paths: 
+  /users:
+    get:
+      operationId: "user.get_users"
+      tags:
+        - "User"
+      summary: "This is to get the users .."
+      responses:
+        "200":
+          description:  "Successfully returned the usres .."
+  /users/{uid}:
+    get:
+      operationId: "user.get_user_by_id"
+      tags:
+        - "User"
+      summary: "This request will return the user if exists .."
+      parameters:
+        - $ref: "#/components/parameters/uid"
+      responses:
+        "200":
+          description: "User found by its ID .."
+
+
